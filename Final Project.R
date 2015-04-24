@@ -1,0 +1,1403 @@
+> levels(country)
+ [1] "Benin"        "Cameroun"     "Gambia"       "Ghana"        "Kenya"       
+ [6] "Lesotho"      "Nigeria"      "Rwanda"       "Sierra Leone" "Swaziland"   
+[11] "Switzerland"  "Uganda"       "USA"          "Zimbabwe"    
+> levels(country)= c("International", "International", "International",
++ "Non-International", "International", "International", "International",
++ "International","International","International","International", 
++ "International","International","International")
+> summary(country)
+    International Non-International 
+             1911              3984 
+> plot(summary(country))
+> barplot(summary(country))
+> barplot(summary(country),ylim=c(0,5000),main="Frequency of patronage of food services")
+> 
+
+> A=Vendor[country=="Non-International"]
+> summary(A)
+ Akorno Catering LTD Mannies Catering LTD 
+                2219                 1765 
+> B=Vendor[country=="International"]
+> summary(B)
+ Akorno Catering LTD Mannies Catering LTD 
+                1079                  832 
+
+> AB=data.frame(summary(A),summary(B))
+> AB
+                     summary.A. summary.B.
+Akorno Catering LTD        2219       1079
+Mannies Catering LTD       1765        832
+> plot(AB)
+> barplot(AB)
+Error in barplot.default(AB) : 'height' must be a vector or a matrix
+> pie(AB)
+Error in pie(AB) : 'x' values must be positive.
+> mosaicplot(AB)
+> ?mosaicplot
+> plot(A)
+> plot(A,ylim=c(0,2500))
+> prop.table(A)
+Error in Summary.factor(c(2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L,  : 
+  sum not meaningful for factors
+> prop.table(AB)
+                     summary.A. summary.B.
+Akorno Catering LTD   0.3764207  0.1830365
+Mannies Catering LTD  0.2994063  0.1411366
+> prop.table(A)
+Error in Summary.factor(c(2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L,  : 
+  sum not meaningful for factors
+> A
+   [1] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+   [4] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+   [7] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [10] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [13] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+  [16] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+  [19] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [22] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [25] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [28] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [31] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+  [34] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+  [37] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+  [40] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+  [43] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [46] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+  [49] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+  [52] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+  [55] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+  [58] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [61] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [64] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [67] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [70] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [73] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+  [76] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+  [79] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [82] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+  [85] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+  [88] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+  [91] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+  [94] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+  [97] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [100] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [103] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [106] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [109] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [112] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [115] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [118] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [121] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [124] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [127] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [130] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [133] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [136] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [139] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [142] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [145] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [148] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [151] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [154] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [157] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [160] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [163] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [166] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [169] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [172] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [175] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [178] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [181] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [184] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [187] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+ [190] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [193] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [196] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [199] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [202] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [205] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [208] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+ [211] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [214] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [217] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [220] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [223] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [226] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [229] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [232] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [235] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [238] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [241] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [244] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [247] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [250] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [253] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [256] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [259] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [262] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [265] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [268] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [271] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [274] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [277] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [280] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [283] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [286] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [289] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [292] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [295] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [298] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [301] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [304] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [307] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [310] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [313] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [316] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [319] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [322] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [325] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [328] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [331] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [334] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [337] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [340] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [343] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+ [346] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [349] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [352] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [355] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [358] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [361] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [364] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [367] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [370] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [373] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [376] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [379] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [382] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [385] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [388] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [391] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [394] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [397] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [400] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [403] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [406] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [409] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [412] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [415] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [418] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [421] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [424] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [427] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [430] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [433] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [436] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [439] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [442] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [445] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [448] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [451] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [454] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [457] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [460] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [463] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [466] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [469] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [472] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [475] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [478] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [481] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [484] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [487] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [490] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [493] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [496] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [499] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [502] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [505] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [508] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [511] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [514] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [517] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [520] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [523] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [526] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [529] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+ [532] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [535] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [538] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [541] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [544] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [547] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [550] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [553] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [556] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [559] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [562] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [565] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+ [568] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [571] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [574] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [577] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [580] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [583] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [586] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [589] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [592] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [595] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [598] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [601] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [604] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [607] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [610] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [613] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [616] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [619] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [622] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [625] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [628] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [631] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [634] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [637] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [640] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [643] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [646] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [649] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [652] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [655] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [658] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [661] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [664] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [667] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [670] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [673] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [676] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [679] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [682] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [685] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [688] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [691] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [694] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [697] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+ [700] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [703] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [706] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [709] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [712] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [715] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [718] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [721] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [724] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [727] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [730] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [733] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [736] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [739] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [742] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [745] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [748] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [751] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [754] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [757] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [760] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [763] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [766] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [769] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [772] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [775] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [778] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [781] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [784] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [787] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [790] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [793] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [796] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [799] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [802] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [805] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [808] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [811] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [814] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [817] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [820] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [823] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [826] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [829] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [832] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [835] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [838] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [841] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [844] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [847] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [850] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [853] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [856] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [859] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [862] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [865] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [868] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [871] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [874] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [877] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [880] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [883] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [886] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [889] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [892] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [895] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [898] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+ [901] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [904] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [907] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [910] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [913] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [916] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [919] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [922] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [925] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [928] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [931] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [934] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [937] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [940] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [943] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+ [946] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [949] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [952] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [955] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [958] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [961] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [964] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [967] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [970] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [973] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [976] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+ [979] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+ [982] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [985] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [988] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [991] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+ [994] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+ [997] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1000] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1003] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1006] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1009] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1012] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1015] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1018] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1021] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[1024] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1027] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1030] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1033] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1036] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1039] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1042] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1045] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1048] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1051] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1054] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1057] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1060] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1063] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1066] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1069] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1072] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1075] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1078] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1081] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1084] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1087] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1090] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1093] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1096] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1099] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1102] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1105] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1108] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1111] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1114] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1117] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1120] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1123] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1126] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1129] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1132] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1135] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1138] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1141] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1144] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1147] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1150] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1153] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1156] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1159] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1162] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1165] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1168] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1171] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1174] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1177] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1180] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1183] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1186] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1189] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1192] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1195] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1198] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1201] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1204] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1207] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1210] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1213] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1216] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1219] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1222] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1225] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1228] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1231] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[1234] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1237] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1240] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1243] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1246] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1249] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1252] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1255] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1258] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1261] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1264] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1267] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1270] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1273] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1276] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1279] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1282] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1285] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1288] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1291] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1294] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1297] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1300] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1303] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1306] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1309] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1312] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1315] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1318] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1321] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1324] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1327] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1330] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1333] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1336] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1339] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1342] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1345] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1348] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1351] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1354] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1357] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1360] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1363] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1366] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1369] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1372] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1375] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1378] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1381] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1384] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1387] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1390] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1393] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1396] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1399] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1402] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1405] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1408] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1411] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1414] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1417] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1420] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1423] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1426] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1429] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1432] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1435] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1438] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1441] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1444] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1447] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1450] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1453] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[1456] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1459] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1462] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1465] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1468] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1471] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1474] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1477] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1480] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1483] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1486] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1489] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1492] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1495] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1498] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1501] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1504] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1507] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1510] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1513] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[1516] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1519] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1522] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1525] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1528] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1531] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1534] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1537] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1540] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1543] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1546] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1549] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1552] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1555] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1558] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1561] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1564] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1567] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1570] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1573] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1576] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[1579] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1582] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1585] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1588] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1591] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1594] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1597] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1600] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1603] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1606] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1609] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1612] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1615] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1618] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1621] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1624] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1627] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1630] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1633] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1636] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1639] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1642] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1645] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1648] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1651] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1654] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1657] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1660] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1663] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1666] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1669] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1672] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1675] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1678] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1681] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1684] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1687] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1690] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1693] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1696] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1699] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1702] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1705] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1708] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1711] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1714] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1717] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1720] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1723] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1726] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1729] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1732] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1735] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1738] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1741] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1744] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1747] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1750] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1753] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1756] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1759] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1762] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1765] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1768] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1771] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1774] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1777] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1780] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1783] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1786] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[1789] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1792] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1795] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1798] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1801] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1804] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1807] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1810] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1813] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[1816] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1819] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1822] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1825] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1828] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1831] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1834] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1837] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1840] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1843] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1846] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1849] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1852] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1855] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1858] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1861] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1864] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1867] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1870] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1873] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1876] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1879] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1882] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1885] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1888] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1891] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1894] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1897] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1900] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1903] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1906] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1909] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1912] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1915] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1918] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1921] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[1924] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1927] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[1930] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1933] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1936] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1939] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1942] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1945] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1948] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1951] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1954] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1957] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1960] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1963] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1966] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1969] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[1972] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1975] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1978] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[1981] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1984] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1987] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[1990] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[1993] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1996] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[1999] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2002] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2005] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2008] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2011] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2014] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2017] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[2020] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2023] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2026] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2029] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2032] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2035] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2038] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2041] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2044] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2047] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2050] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2053] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2056] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2059] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2062] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2065] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2068] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2071] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[2074] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2077] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2080] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2083] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2086] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2089] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2092] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2095] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2098] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2101] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2104] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2107] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2110] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2113] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2116] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2119] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2122] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2125] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2128] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2131] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2134] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2137] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2140] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2143] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2146] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2149] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2152] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2155] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2158] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2161] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2164] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2167] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2170] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2173] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2176] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2179] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2182] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2185] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2188] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2191] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2194] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2197] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2200] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2203] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2206] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2209] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2212] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2215] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2218] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2221] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2224] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2227] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2230] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2233] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2236] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2239] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2242] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2245] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2248] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2251] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2254] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2257] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2260] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2263] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2266] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2269] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2272] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2275] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2278] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2281] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2284] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2287] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2290] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2293] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2296] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2299] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2302] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2305] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2308] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2311] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2314] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2317] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2320] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2323] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2326] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2329] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2332] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2335] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2338] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2341] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2344] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2347] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2350] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2353] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2356] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2359] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2362] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2365] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2368] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2371] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2374] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2377] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2380] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2383] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2386] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2389] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2392] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2395] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2398] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2401] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2404] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2407] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2410] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2413] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2416] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2419] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2422] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2425] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2428] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2431] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2434] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2437] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2440] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2443] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2446] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2449] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2452] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2455] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2458] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2461] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2464] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2467] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2470] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2473] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2476] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2479] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2482] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2485] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2488] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2491] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2494] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[2497] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2500] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2503] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2506] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2509] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2512] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2515] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2518] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2521] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2524] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2527] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2530] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2533] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2536] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2539] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2542] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2545] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2548] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2551] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2554] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2557] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2560] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2563] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2566] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[2569] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2572] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2575] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2578] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2581] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2584] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2587] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2590] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2593] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2596] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2599] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2602] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2605] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2608] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2611] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2614] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2617] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2620] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2623] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2626] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2629] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2632] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2635] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2638] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2641] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2644] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2647] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2650] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2653] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2656] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2659] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2662] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2665] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2668] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2671] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2674] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2677] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2680] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2683] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2686] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2689] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2692] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2695] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2698] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2701] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2704] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2707] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2710] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2713] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2716] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2719] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2722] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2725] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2728] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2731] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2734] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2737] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2740] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2743] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2746] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2749] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2752] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2755] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2758] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2761] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2764] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2767] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2770] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2773] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2776] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2779] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2782] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2785] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2788] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2791] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2794] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2797] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2800] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2803] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2806] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2809] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2812] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2815] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2818] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2821] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2824] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2827] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2830] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2833] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2836] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2839] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2842] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2845] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2848] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2851] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2854] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2857] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2860] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2863] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2866] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2869] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2872] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2875] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2878] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2881] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2884] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2887] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2890] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2893] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2896] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2899] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2902] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2905] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2908] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2911] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2914] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2917] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2920] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2923] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2926] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2929] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2932] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2935] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[2938] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2941] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2944] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2947] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2950] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[2953] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2956] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2959] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[2962] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2965] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2968] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2971] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2974] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2977] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[2980] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2983] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[2986] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[2989] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2992] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2995] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[2998] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3001] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[3004] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3007] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3010] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3013] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3016] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3019] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3022] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3025] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3028] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3031] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3034] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3037] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3040] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3043] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3046] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3049] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3052] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3055] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3058] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3061] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3064] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3067] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3070] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3073] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3076] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3079] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3082] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3085] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3088] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3091] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3094] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3097] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3100] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3103] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3106] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3109] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3112] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3115] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3118] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3121] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3124] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3127] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3130] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3133] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3136] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3139] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3142] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3145] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3148] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3151] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3154] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3157] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3160] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3163] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3166] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3169] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3172] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3175] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3178] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3181] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3184] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3187] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3190] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3193] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3196] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3199] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3202] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3205] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3208] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3211] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3214] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3217] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3220] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3223] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3226] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3229] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3232] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3235] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3238] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3241] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3244] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3247] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3250] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3253] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3256] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3259] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3262] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3265] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3268] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3271] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3274] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3277] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3280] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3283] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3286] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3289] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3292] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3295] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3298] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3301] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3304] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3307] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3310] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3313] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3316] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3319] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3322] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3325] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3328] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3331] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3334] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3337] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3340] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3343] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3346] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3349] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3352] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[3355] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3358] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3361] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[3364] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3367] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3370] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3373] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3376] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3379] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3382] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3385] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3388] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3391] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3394] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3397] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3400] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3403] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3406] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[3409] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3412] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3415] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3418] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3421] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3424] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3427] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3430] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3433] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3436] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3439] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3442] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3445] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[3448] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3451] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3454] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3457] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3460] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3463] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3466] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3469] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3472] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3475] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3478] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3481] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3484] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3487] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3490] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3493] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3496] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3499] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3502] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3505] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3508] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3511] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[3514] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3517] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3520] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3523] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3526] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3529] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3532] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3535] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3538] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3541] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3544] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3547] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3550] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3553] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3556] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3559] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3562] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3565] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3568] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3571] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3574] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3577] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3580] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3583] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3586] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3589] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3592] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3595] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3598] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3601] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3604] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3607] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3610] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3613] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3616] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3619] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3622] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3625] Mannies Catering LTD Akorno Catering LTD  Mannies Catering LTD
+[3628] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3631] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3634] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3637] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3640] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3643] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3646] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3649] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3652] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3655] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3658] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3661] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3664] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3667] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3670] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3673] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3676] Akorno Catering LTD  Mannies Catering LTD Akorno Catering LTD 
+[3679] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3682] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3685] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3688] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3691] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3694] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3697] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3700] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3703] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3706] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3709] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3712] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3715] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3718] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3721] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3724] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3727] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3730] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3733] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3736] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3739] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3742] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3745] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3748] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3751] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3754] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3757] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3760] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3763] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3766] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3769] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3772] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3775] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3778] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3781] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3784] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3787] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3790] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3793] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3796] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3799] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3802] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3805] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3808] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3811] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3814] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3817] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3820] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3823] Mannies Catering LTD Mannies Catering LTD Akorno Catering LTD 
+[3826] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3829] Mannies Catering LTD Mannies Catering LTD Mannies Catering LTD
+[3832] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3835] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3838] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3841] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3844] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3847] Akorno Catering LTD  Akorno Catering LTD  Mannies Catering LTD
+[3850] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3853] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3856] Akorno Catering LTD  Mannies Catering LTD Mannies Catering LTD
+[3859] Mannies Catering LTD Akorno Catering LTD  Akorno Catering LTD 
+[3862] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3865] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3868] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3871] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3874] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3877] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3880] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3883] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3886] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3889] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3892] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3895] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3898] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3901] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3904] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3907] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3910] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3913] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3916] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3919] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3922] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3925] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3928] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3931] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3934] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3937] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3940] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3943] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3946] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3949] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3952] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3955] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3958] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3961] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3964] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3967] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3970] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3973] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3976] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3979] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+[3982] Akorno Catering LTD  Akorno Catering LTD  Akorno Catering LTD 
+Levels: Akorno Catering LTD Mannies Catering LTD
+> prop.table(summary(A))
+ Akorno Catering LTD Mannies Catering LTD 
+           0.5569779            0.4430221 
+> prop.table(summary(B))
+ Akorno Catering LTD Mannies Catering LTD 
+           0.5646259            0.4353741 
+> C=prop.table(summary(A))
+> D=prop.table(summary(B))
+> plot(C,D)
+> plot(C)
+> barplot(C)
+> par(mfrow=c(1,2))
+> barplot(C,ylim=c(0,0.6),main="Proportion of International Students who patronize Food Services")
+> barplot(C,ylim=c(0,0.6),main="Proportion of International Students")
+> barplot(D,ylim=c(0,0.6),main="Proportion of Local Students")
+> barplot(C,ylim=c(0,0.6),main="Proportion of International Students")
+> barplot(C,ylim=c(0,0.6),main="Proportion of International Students",legend=TRUE)
+> barplot(C,ylim=c(0,0.6),main="Proportion of International Students",legend=TRUE,col=c(2,4))
+> barplot(D,ylim=c(0,0.6),main="Proportion of Local Students",legend=TRUE,col=c(2,4))
+> barplot(C,ylim=c(0,0.6),main="Proportion of International Students",legend=TRUE,col=c(2,4))
+
+>  barplot(D,ylim=c(0,0.6),main="Proportion of Local Students",col=c(2,4))
+> barplot(C,ylim=c(0,0.6),main="Proportion of International Students",col=c(2,4))
+> 
